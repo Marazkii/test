@@ -6,11 +6,13 @@
 
 <body>
         <script>
+             points=0;
             function startTouch(ev) {
  // Process the event
-                document.getElementById("pr").innerHTML="Hello";
+                points++;
+                document.getElementById("pr").innerHTML=points;
+                document.getElementById("i").src="bin.png";
 }
-            
         </script>
     
         <img src="shooted_avatar.png" id="i" ontouchstart="startTouch(event)"/>
