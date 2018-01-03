@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>ShootTask</title>
+    </head>
+  
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+            points=0;
+            hearts=3;
+            function shootEvil(ev) {
+                points++;
+                document.getElementById("score").innerHTML=points;
+                document.getElementById("evil").src="shooted_avatar.png";
+                document.getElementById("evil").onclick=false;
+                window.setTimeout(function(){$("#evil").fadeOut();}, 1000);
+            }
+            function shootAngel(ev) {
+                hearts--;
+                if(hearts==0){
+                    document.getElementById("heart").innerHTML="Game Over"
+                }
+                else{
+                    document.getElementById("heart").innerHTML=hearts;
+                }
+                document.getElementById("angel").src="shooted_angel.png";
+                document.getElementById("angel").onclick=false;
+                window.setTimeout(function(){$("#angel").fadeOut();}, 1000);
+            }
+        </script>
+        <p>Score: <span id="score">0</span></p>
+        <p>Hearts: <span id="heart">3</span></p>
+        <center>
+            <img src="avatar.png" id="evil" ontouchstart="shootEvil(event)" onclick="shootEvil(event)"/>
+            <img src="angel.png" id="angel" ontouchstart="shootAngel(event)" onclick="shootAngel(event)"/>
+        </center>
+        
+    </body>
+</html>
